@@ -35,6 +35,30 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Villalpando",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2023-12-28T22:01:02.290Z",
+      "notes": "FANTASTIC",
+      "position": {
+        "lat": "41.83682786072714",
+        "lng": "-5.383300781250001"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Essaouira",
+      "country": "Morocco",
+      "emoji": "🇲🇦",
+      "date": "2023-12-28T22:08:48.515Z",
+      "notes": "loved it",
+      "position": {
+        "lat": "31.615965936476076",
+        "lng": "-9.618530273437502"
+      },
+      "id": 98443199
     }
   ]
 }

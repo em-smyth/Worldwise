@@ -35,6 +35,30 @@
         "lng": "-9.618530273437502"
       },
       "id": 98443199
+    },
+    {
+      "cityName": "Kotor",
+      "country": "Montenegro",
+      "emoji": "🇲🇪",
+      "date": "2023-12-28T23:23:30.717Z",
+      "notes": "epic",
+      "position": {
+        "lat": "42.48222557002593",
+        "lng": "18.70353698730469"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Saint-Martin-de-Re",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-12-28T23:29:06.160Z",
+      "notes": "lovely",
+      "position": {
+        "lat": "46.2018147146228",
+        "lng": "-1.369171142578125"
+      },
+      "id": 98443202
     }
   ]
 }

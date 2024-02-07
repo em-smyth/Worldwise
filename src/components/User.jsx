@@ -1,5 +1,5 @@
 import styles from "./User.module.css";
-import { useAuth } from "../contexts/FakeAuthContext";
+import { useAuth } from "../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 
 function User() {
@@ -13,8 +13,8 @@ function User() {
 
   return (
     <div className={styles.user}>
-      <img src={user.avatar} alt={user.name} />
-      <span>Welcome, {user.name}</span>
+      <img src="https://i.pravatar.cc/100?u=zz" alt={user.name} />
+      <span>Welcome, Jack</span>
       <button onClick={handleClick}>Logout</button>
     </div>
   );

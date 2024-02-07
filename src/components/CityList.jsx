@@ -15,11 +15,14 @@ function CityList() {
     );
 
   return (
-    <ul className={styles.cityList}>
-      {cities.map((city) => (
-        <CityItem city={city} key={city.id} />
-      ))}
-    </ul>
+    <>
+      <ul className={styles.cityList}>
+        {cities.map((city) => (
+          <CityItem city={city} key={cities.id} />
+        ))}
+      </ul>
+      <Message message="Add a city by clicking on a city on the map." />
+    </>
   );
 }
 

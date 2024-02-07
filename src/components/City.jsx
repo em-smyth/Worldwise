@@ -40,7 +40,7 @@ function City() {
   return (
     <div className={styles.city}>
       <div className={styles.row}>
-        <h6>City name</h6>
+        <h6>{cityName}</h6>
         <h3>
           <span>{emoji ? flagemojiToPNG(emoji) : ""}</span>
         </h3>

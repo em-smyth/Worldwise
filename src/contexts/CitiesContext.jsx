@@ -5,8 +5,7 @@ import {
   useReducer,
   useCallback,
 } from "react";
-
-const BASE_URL = "https://worldwise-lovat.vercel.app/";
+import supabase from "../services/supabase";
 
 const CitiesContext = createContext();
 
@@ -60,71 +59,65 @@ function CitiesProvider({ children }) {
 
   useEffect(function () {
     async function fetchCities() {
-      try {
-        dispatch({ type: "loading" });
-        const res = await fetch(`${BASE_URL}/cities`);
-        const data = await res.json();
-        dispatch({ type: "cities/loaded", payload: data });
-      } catch {
+      dispatch({ type: "loading" });
+      const { data: cities, error } = await supabase.from("cities").select("*");
+
+      if (!error) {
+        dispatch({ type: "cities/loaded", payload: cities });
+      } else {
         dispatch({
           type: "rejected",
-          payload: "There was an error loading the cities.",
+          payload: error,
         });
       }
     }
     fetchCities();
   }, []);
 
-  const getCity = useCallback(
-    async function getCity(id) {
-      if (Number(id) === currentCity.id) return;
+  const getCity = useCallback(async function getCity(id) {
+    // if (Number(id) === currentCity?.id) return;
 
-      try {
-        dispatch({ type: "loading" });
-        const res = await fetch(`${BASE_URL}/cities/${id}`);
-        const data = await res.json();
-        dispatch({ type: "city/loaded", payload: data });
-      } catch {
-        dispatch({
-          type: "rejected",
-          payload: "There was an error loading the city.",
-        });
-      }
-    },
-    [currentCity.id]
-  );
+    dispatch({ type: "loading" });
+    const { data: city, error } = await supabase
+      .from("cities")
+      .select("*")
+      .eq("id", id);
 
-  async function createCity(newCity) {
-    try {
-      dispatch({ type: "loading" });
-      const res = await fetch(`${BASE_URL}/cities`, {
-        method: "POST",
-        body: JSON.stringify(newCity),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const data = await res.json();
-      dispatch({ type: "city/created", payload: data });
-    } catch {
+    if (!error) {
+      dispatch({ type: "city/loaded", payload: city[0] });
+    } else {
       dispatch({
         type: "rejected",
-        payload: "There was an error creating the city.",
+        payload: error,
+      });
+    }
+  }, []);
+
+  async function createCity(newCity) {
+    dispatch({ type: "loading" });
+
+    const { error } = await supabase.from("cities").insert([newCity]);
+
+    if (!error) {
+      dispatch({ type: "city/created", payload: newCity });
+    } else {
+      dispatch({
+        type: "rejected",
+        payload: error,
       });
     }
   }
 
   async function deleteCity(id) {
-    try {
-      dispatch({ type: "loading" });
-      await fetch(`${BASE_URL}/cities/${id}`, {
-        method: "DELETE",
-      });
+    dispatch({ type: "loading" });
+    const { error } = await supabase.from("cities").delete().eq("id", id);
+
+    if (!error) {
       dispatch({ type: "city/deleted", payload: id });
-    } catch {
+    } else {
       dispatch({
         type: "rejected",
-        payload: "There was an error deleting the city.",
+        payload: error,
       });
     }
   }

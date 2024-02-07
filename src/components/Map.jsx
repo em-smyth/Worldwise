@@ -52,11 +52,10 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
-      {!geolocationPosition && (
-        <Button type="position" onClick={getPosition}>
-          {isLoadingPosition ? "Loading..." : "Use Your Position"}
-        </Button>
-      )}
+      <Button type="position" onClick={getPosition}>
+        {isLoadingPosition ? "Loading..." : "Use Your Position"}
+      </Button>
+
       <MapContainer
         center={mapPosition}
         zoom={6}
@@ -68,10 +67,7 @@ function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => (
-          <Marker
-            position={[city.position.lat, city.position.lng]}
-            key={city.id}
-          >
+          <Marker position={[city.positionLat, city.positionLng]} key={city.id}>
             <Popup>
               <span>{flagemojiToPNG(city.emoji)}</span>
               <span>{city.cityName}</span>
@@ -87,7 +83,12 @@ function Map() {
 
 function ChangeCenter({ position }) {
   const map = useMap();
-  map.setView(position);
+
+  // Ensure both latitude and longitude are numbers before calling setView
+  if (typeof position[0] === "number" && typeof position[1] === "number") {
+    map.setView(position);
+  }
+
   return null;
 }
 

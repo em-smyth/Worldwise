@@ -24,5 +24,9 @@
 }
 
 .countryList::-webkit-scrollbar {
-  width: 0;
+  width: 5px;
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark--2);
 }

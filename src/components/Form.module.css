@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: scroll;
 }
 
 .row {
@@ -41,4 +42,12 @@
 :global(.react-datepicker) {
   font-family: inherit;
   font-size: 1.2rem;
+}
+
+.form::-webkit-scrollbar {
+  width: 5px;
+}
+
+.form::-webkit-scrollbar-thumb {
+  background-color: var(--color-dark--1);
 }

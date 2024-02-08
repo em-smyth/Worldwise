@@ -10,8 +10,8 @@
   margin: 6rem auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7rem;
   align-items: center;
+  gap: 4rem;
 }
 
 .product img {
@@ -22,13 +22,45 @@
   font-size: 4rem;
   line-height: 1.2;
   margin-bottom: 3rem;
+  padding: 20px;
+  text-align: center;
 }
 
 .product p {
   font-size: 1.6rem;
   margin-bottom: 2rem;
+  padding: 20px;
+  text-align: center;
 }
 
 .product section a {
   margin-top: 2rem;
+}
+
+@media screen and (max-width: 950px) {
+  .product section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    gap: 2 rem;
+  }
+
+  .product img {
+    margin: 0px;
+  }
+
+  .product h2 {
+    padding: 0px;
+  }
+
+  .product p {
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .product section {
+    width: 95%;
+  }
 }

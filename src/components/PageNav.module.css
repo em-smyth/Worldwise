@@ -33,7 +33,7 @@ a.ctaLink:visited {
   border-radius: 7px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   .nav {
     display: flex;
     flex-direction: column;

@@ -17,3 +17,9 @@
 .cityList::-webkit-scrollbar-thumb {
   background-color: var(--color-dark--2);
 }
+
+@media screen and (max-width: 800px) {
+  .cityList {
+    display: hidden;
+  }
+}

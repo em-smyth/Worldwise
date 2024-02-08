@@ -5,7 +5,7 @@ import { AuthProvider } from "./services/apiAuth";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import { Suspense, lazy } from "react";
 
-import CityList from "./components/CityList";
+// import CityList from "./components/CityList";
 import City from "./components/City";
 import CountryList from "./components/CountryList";
 import Form from "./components/Form";
@@ -45,7 +45,8 @@ function App() {
                 }
               >
                 <Route index element={<Navigate replace to="cities" />} />
-                <Route path="cities" element={<CityList />} />
+                <Route path="cities" />
+                {/* <Route path="cities" element={<CityList />} /> */}
                 <Route path="cities/:id" element={<City />} />
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />

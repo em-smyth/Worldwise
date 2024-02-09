@@ -41,6 +41,10 @@ function Map() {
     },
     [mapLat, mapLng]
   );
+  const largeSideBar =
+    location.pathname.includes("/cities") ||
+    location.pathname.includes("/countries") ||
+    location.pathname.includes("/form");
 
   useEffect(
     function () {
@@ -56,9 +60,11 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
-      <Button type="position" onClick={getPosition}>
-        {isLoadingPosition ? "Loading..." : "Use Your Position"}
-      </Button>
+      {!largeSideBar && (
+        <Button type="position" onClick={getPosition}>
+          {isLoadingPosition ? "Loading..." : "Use Your Position"}
+        </Button>
+      )}
 
       <MapContainer
         center={mapPosition}

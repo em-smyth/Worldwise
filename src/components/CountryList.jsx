@@ -1,11 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 import CountryItem from "./CountryItem";
 import styles from "./CountryList.module.css";
 import Spinner from "./Spinner";
 import Message from "./Message";
 import { useCities } from "../contexts/CitiesContext";
+import Button from "./Button";
 
 function CountryList() {
   const { cities, isLoading } = useCities();
+  const navigate = useNavigate();
 
   if (isLoading) return <Spinner />;
 
@@ -20,12 +24,21 @@ function CountryList() {
     else return arr;
   }, []);
 
+  function handleClick() {
+    navigate("/app");
+  }
+
   return (
-    <ul className={styles.countryList}>
-      {countries.map((country) => (
-        <CountryItem country={country} key={country.index} />
-      ))}
-    </ul>
+    <>
+      <ul className={styles.countryList}>
+        {countries.map((country) => (
+          <CountryItem country={country} key={country.index} />
+        ))}
+      </ul>
+      <Button onClick={handleClick} type="back">
+        Close
+      </Button>
+    </>
   );
 }
 

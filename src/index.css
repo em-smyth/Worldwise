@@ -76,3 +76,13 @@ input:focus {
     "description": "Import CSS Module as `styles`"
   },
 */
+
+@media screen and (max-width: 400px) {
+  label {
+    font-size: 1rem;
+  }
+  input,
+  textarea {
+    font-size: 1rem;
+  }
+}

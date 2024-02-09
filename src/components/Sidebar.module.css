@@ -1,4 +1,5 @@
-.sidebar {
+.sidebar,
+.sidebarFullScreenMobile {
   flex-basis: 40%;
   background-color: var(--color-dark--1);
   padding: 3rem 5rem 3.5rem 5rem;
@@ -6,7 +7,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   height: calc(100vh - 4.8rem);
+  z-index: 100;
 }
 
 .footer {
@@ -21,10 +24,11 @@
 /* change position of sidebar to bottom when under 800px */
 
 @media screen and (max-width: 800px) {
-  .sidebar {
+  .sidebar,
+  .sidebarFullScreenMobile {
     flex-direction: column;
-
-    height: 50%;
+    height: auto;
+    padding: 2rem;
   }
 
   .logoAndUser {
@@ -32,5 +36,12 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar,
+  .sidebarFullScreenMobile {
+    padding: 1rem;
   }
 }

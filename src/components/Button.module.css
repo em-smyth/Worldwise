@@ -13,13 +13,24 @@
   font-weight: 700;
   background-color: var(--color-brand--2);
   color: var(--color-dark--1);
-  margin: 0 1rem;
+  margin: 0.5rem;
+  border: var(--color-brand--2) 1px solid;
+}
+
+.primary--active {
+  font-weight: 700;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  margin: 0.5rem;
+  border: white 1px solid;
 }
 
 .back {
   font-weight: 600;
   background: none;
   border: 1px solid currentColor;
+  margin: 1rem;
+  font-size: 1.2rem;
 }
 
 .position {
@@ -33,4 +44,81 @@
   background-color: var(--color-brand--2);
   color: var(--color-dark--1);
   box-shadow: 0 0.4rem 1.2rem rgba(36, 42, 46, 0.16);
+}
+
+.user {
+  background-color: var(--color-dark--2);
+  border-radius: 7px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.visited {
+  background-color: var(--color-dark--2);
+  border: 1px var(--color-dark--2) solid;
+  padding: 1rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.visited--active {
+  background-color: var(--color-dark--2);
+  border: 1px var(--color-brand--2) solid;
+  margin: 1rem;
+  padding: 1rem;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  .btn {
+    font-size: 1rem;
+  }
+
+  .primary {
+    font-size: 1rem;
+  }
+
+  .primary--active {
+    font-size: 1rem;
+  }
+
+  .back {
+    font-size: 1rem;
+  }
+
+  .position {
+    font-size: 1rem;
+  }
+
+  .user {
+    font-size: 1rem;
+  }
+
+  .visited {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .visited--active {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 }

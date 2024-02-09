@@ -1,27 +1,40 @@
 import styles from "./AppNav.module.css";
+import { useNavigate } from "react-router-dom";
+
 import Button from "./Button";
 
-function AppNav({ setMobileCitiesVisible, setMobileCountriesVisible }) {
+function AppNav() {
+  const navigate = useNavigate();
+
+  const citiesActive = location.pathname.includes("/cities");
+
+  const countriesActive = location.pathname.includes("/countries");
+
   const handleClickCities = function () {
-    setMobileCitiesVisible(true);
-    setMobileCountriesVisible(false);
+    navigate("/app/cities");
   };
 
   const handleClickCountries = function () {
-    setMobileCitiesVisible(false);
-    setMobileCountriesVisible(true);
+    navigate("/app/countries");
   };
 
   return (
     <nav className={styles.nav}>
-      <ul>
-        <li onClick={handleClickCities}>
-          <Button type="primary">View Cities</Button>
-        </li>
-        <li onClick={handleClickCountries}>
-          <Button type="primary">View Countries</Button>
-        </li>
-      </ul>
+      <div className={styles.buttons}>
+        <Button
+          onClick={handleClickCities}
+          type={citiesActive ? "visited--active" : "visited"}
+        >
+          View Visited Cities
+        </Button>
+
+        <Button
+          onClick={handleClickCountries}
+          type={countriesActive ? "visited--active" : "visited"}
+        >
+          View Visited Countries
+        </Button>
+      </div>
     </nav>
   );
 }

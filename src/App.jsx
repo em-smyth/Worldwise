@@ -10,6 +10,7 @@ import City from "./components/City";
 import CountryList from "./components/CountryList";
 import Form from "./components/Form";
 import SpinnerFullPage from "./components/SpinnerFullPage";
+import CityList from "./components/CityList";
 // import Product from "./pages/Product";
 // import Pricing from "./pages/Pricing";
 // import Homepage from "./pages/Homepage";
@@ -44,9 +45,9 @@ function App() {
                   </ProtectedRoute>
                 }
               >
-                <Route index element={<Navigate replace to="cities" />} />
-                <Route path="cities" />
-                {/* <Route path="cities" element={<CityList />} /> */}
+                <Route index element={<Navigate replace to="/app" />} />
+
+                <Route path="cities" element={<CityList />} />
                 <Route path="cities/:id" element={<City />} />
                 <Route path="countries" element={<CountryList />} />
                 <Route path="form" element={<Form />} />
